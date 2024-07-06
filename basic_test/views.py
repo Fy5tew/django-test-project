@@ -17,13 +17,13 @@ def test_view(request):
     return JsonResponse({"running": True})
 
 
-def avby_view(request):
-    response = requests.get('https://cars.av.by/audi/a8', headers=HEADERS)
-    response.raise_for_status()
-    return HttpResponse(response.text)
-
-
-def kufar_view(request):
-    response = requests.get('https://auto.kufar.by/l/cars/audi-a8?cur=BYR', headers=HEADERS)
-    response.raise_for_status()
-    return HttpResponse(response.text)
+def url_view(request):
+    url = request.GET.get('url')
+    if not url:
+        return JsonResponse({"error": "Please, enter the url"})
+    try:
+        response = requests.get(url, headers=HEADERS)
+        response.raise_for_status()
+        return HttpResponse(response.text)
+    except Exception as ex:
+        return JsonResponse({"error": str(ex)})
