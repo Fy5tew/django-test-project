@@ -7,8 +7,7 @@
             "config": {
                 "maxLambdaSize": "15mb",
                 "runtime": "python3.10",
-                "buildCommand": "./build.sh",
-                "includeFiles": "build/*"
+                "buildCommand": "./build.sh"
             }
         }
     ],
@@ -21,5 +20,6 @@
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
         }
-    ]
+    ],
+    "outputDirectory": "build/static"
 }
