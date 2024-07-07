@@ -6,19 +6,16 @@
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
-                "runtime": "python3.10"
-            }
-        },
-        {
-            "src": "build_files.sh",
-            "use": "@vercel/static",
-            "config": {
-                "distDir": "build/static",
-                "includeFiles": "build/static"
+                "runtime": "python3.10",
+                "buildCommand": "./build.sh"
             }
         }
     ],
     "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
         {
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
