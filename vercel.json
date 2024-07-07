@@ -18,12 +18,14 @@
     ],
     "routes": [
         {
-          "src": "/static/(.*)",
-          "dest": "/static/$1"
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         },
         {
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
         }
-    ]
+    ],
+
+    "outputDirectory": "staticfiles_build"
 }
