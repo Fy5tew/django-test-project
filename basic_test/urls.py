@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index_view),
     path('test/', views.test_view),
     path('url/', views.url_view),
+    path('files/', views.files_view)
 ]

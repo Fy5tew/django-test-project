@@ -1,5 +1,8 @@
+import os
+
 import requests
 
+from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 
 # Create your views here.
@@ -28,3 +31,7 @@ def url_view(request):
         return HttpResponse(response.text)
     except Exception as ex:
         return JsonResponse({"error": str(ex)})
+
+
+def files_view(request):
+    return JsonResponse({'files': os.listdir(settings.BASE_DIR)})
