@@ -11,7 +11,10 @@
         },
         {
             "src": "build_files.sh",
-            "use": "@vercel/static"
+            "use": "@vercel/static",
+            "config": {
+                "distDir": "."
+            }
         }
     ],
     "routes": [
@@ -19,6 +22,5 @@
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
         }
-    ],
-    "outputDirectory": "."
+    ]
 }
