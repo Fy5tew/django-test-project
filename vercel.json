@@ -19,5 +19,6 @@
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
         }
-    ]
+    ],
+    "outputDirectory": "."
 }
