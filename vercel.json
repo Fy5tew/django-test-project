@@ -13,7 +13,8 @@
             "src": "build_files.sh",
             "use": "@vercel/static",
             "config": {
-                "distDir": "build/static"
+                "distDir": "build/static",
+                "includeFiles": "build/static"
             }
         }
     ],
@@ -22,6 +23,5 @@
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
         }
-    ],
-    "outputDirectory": "build/static"
+    ]
 }
