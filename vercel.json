@@ -2,7 +2,8 @@
     "builds": [
         {
             "src": "build_files.sh",
-            "use": "@vercel/static"
+            "use": "@vercel/static-build",
+            "config": { "distDir": "staticfiles" }
         },
         {
             "src": "django_test/wsgi.py",
@@ -15,8 +16,8 @@
     ],
     "routes": [
         {
-            "src": "/staticfiles/(.*)",
-            "dest": "/staticfiles/$1"
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         },
         {
             "src": "/(.*)",
