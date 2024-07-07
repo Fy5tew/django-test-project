@@ -1,6 +1,10 @@
 {
     "builds": [
         {
+            "src": "build_files.sh",
+            "use": "@vercel/static"
+        },
+        {
             "src": "django_test/wsgi.py",
             "use": "@vercel/python",
             "config": {
@@ -10,6 +14,10 @@
         }
     ],
     "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/staticfiles/$1"
+        },
         {
             "src": "/(.*)",
             "dest": "django_test/wsgi.py"
